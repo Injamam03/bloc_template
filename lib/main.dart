@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'config/routes/app_pages.dart';
+import 'config/routes/app_routes.dart';
 import 'core/theme/app_theme.dart';
+import 'injection_container.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // async কাজ করার আগে এটা লাগবে
+  await initDependencies();
   runApp(const MyApp());
 }
 
@@ -21,7 +27,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Bloc Template',
           theme: AppTheme.lightTheme,
-          home: child,
+          initialRoute: AppRoutes.login,
+          routes: AppPages.routes,
         );
       },
       child: const Scaffold(
