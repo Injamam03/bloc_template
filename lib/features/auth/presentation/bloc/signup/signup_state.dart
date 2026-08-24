@@ -1,1 +1,31 @@
-abstract class SignupState {}
+import 'package:equatable/equatable.dart';
+import 'package:bloc_template/features/auth/domain/entities/user_entity.dart';
+
+abstract class SignupState extends Equatable {
+  const SignupState();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class SignupInitial extends SignupState {}
+
+class SignupLoading extends SignupState {}
+
+class SignupSuccess extends SignupState {
+  final UserEntity user;
+
+  const SignupSuccess(this.user);
+
+  @override
+  List<Object?> get props => [user];
+}
+
+class SignupFailureState extends SignupState {
+  final String message;
+
+  const SignupFailureState(this.message);
+
+  @override
+  List<Object?> get props => [message];
+}

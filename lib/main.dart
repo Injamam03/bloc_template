@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Bloc Template',
           theme: AppTheme.lightTheme,
-          initialRoute: AppRoutes.login,
+          initialRoute: AppRoutes.signup,
           routes: AppPages.routes,
         );
       },
