@@ -35,6 +35,7 @@ class _SignupViewState extends State<_SignupView> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final countryNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -42,6 +43,7 @@ class _SignupViewState extends State<_SignupView> {
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    countryNameController.dispose();
     super.dispose();
   }
 
@@ -98,7 +100,7 @@ class _SignupViewState extends State<_SignupView> {
                     Gap(height:8.h),
                     CustomTextField(
                       controller: nameController,
-                      hintText: "Enter your name",
+                      hintText: AppStrings.enterYourName,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Name is required";
@@ -138,6 +140,10 @@ class _SignupViewState extends State<_SignupView> {
                         return null;
                       },
                     ),
+                    Gap(height: 20,),
+                    CustomTextField(
+                        controller: countryNameController,
+                        hintText: "Enter your Country Name"),
 
                     Gap(height:40.h),
 
@@ -151,6 +157,7 @@ class _SignupViewState extends State<_SignupView> {
                               name: nameController.text.trim(),
                               email: emailController.text.trim(),
                               password: passwordController.text.trim(),
+                              countryName : countryNameController.text.trim(),
                             ),
                           );
                         }

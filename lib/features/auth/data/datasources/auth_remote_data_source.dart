@@ -10,6 +10,7 @@ abstract class AuthRemoteDataSource {
     required String name,
     required String email,
     required String password,
+    required String countryName,
   });
 }
 
@@ -40,6 +41,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String name,
     required String email,
     required String password,
+    required String countryName,
+
   }) async {
     // 🔧 TODO: এখানে পরে আসল Dio API call বসবে
     await Future.delayed(const Duration(seconds: 2));

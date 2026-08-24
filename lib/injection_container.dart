@@ -13,11 +13,11 @@ final sl = GetIt.instance;
 Future<void> initDependencies() async {
   // ---------------- Bloc ----------------
   sl.registerFactory(() => LoginBloc(sl()));
-  sl.registerFactory(() => SignupBloc(sl())); // 👈 এই লাইন আছে তো?
+  sl.registerFactory(() => SignupBloc(sl()));
 
   // ---------------- Usecases ----------------
   sl.registerLazySingleton(() => LoginUsecase(sl()));
-  sl.registerLazySingleton(() => SignupUsecase(sl()));
+  sl.registerLazySingleton(() => SignupUseCase(sl()));
 
   // ---------------- Repository ----------------
   sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl()));

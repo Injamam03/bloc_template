@@ -8,7 +8,7 @@ import 'injection_container.dart';
 
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // async কাজ করার আগে এটা লাগবে
+  WidgetsFlutterBinding.ensureInitialized(); //
   await initDependencies();
   runApp(const MyApp());
 }
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812), // Figma/XD design এর base size (সাধারণত iPhone X এর size)
+      designSize: const Size(375, 812), //
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Bloc Template',
           theme: AppTheme.lightTheme,
-          initialRoute: AppRoutes.signup,
+          initialRoute: AppRoutes.login,
           routes: AppPages.routes,
         );
       },

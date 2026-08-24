@@ -36,19 +36,21 @@ class _LoginView extends StatefulWidget {
 class _LoginViewState extends State<_LoginView> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state is LoginSuccess) {
@@ -131,6 +133,17 @@ class _LoginViewState extends State<_LoginView> {
                         return null;
                       },
                     ),
+                    Gap(height: 40,),
+                    CustomText(
+                      AppStrings.countryName,
+                      fontSize: 14,
+
+                    ),
+
+
+
+
+
 
                     Gap(height: 40.h),
 

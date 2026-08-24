@@ -4,9 +4,9 @@ import 'package:bloc_template/features/auth/presentation/bloc/signup/signup_even
 import 'package:bloc_template/features/auth/presentation/bloc/signup/signup_state.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  final SignupUsecase signupUsecase;
+  final SignupUseCase signupUseCase;
 
-  SignupBloc(this.signupUsecase) : super(SignupInitial()) {
+  SignupBloc(this.signupUseCase) : super(SignupInitial()) {
     on<SignupSubmitted>(_onSignupSubmitted);
   }
 
@@ -16,10 +16,11 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       ) async {
     emit(SignupLoading());
 
-    final result = await signupUsecase(
+    final result = await signupUseCase(
       name: event.name,
       email: event.email,
       password: event.password,
+      countryName: event.countryName,
     );
 
     result.fold(
